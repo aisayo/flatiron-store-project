@@ -3,6 +3,6 @@ class Item < ActiveRecord::Base
   has_many :line_items
 
   def self.available_items
-    Item.where('inventory > 0')
+    self.all.select{|item| item if item.inventory && item.inventory > 0}
   end
 end
