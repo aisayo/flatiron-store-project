@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  before_action :user_signed_in?, only: [:show,:checkout]
 
   def show
     @cart = Cart.find(params[:id])
@@ -7,6 +6,7 @@ class CartsController < ApplicationController
 
   def checkout
     cart = Cart.find(params[:id])
+    # current_user_cart_id = cart.user_id
     cart.checkout
     redirect_to cart_path(cart)
   end

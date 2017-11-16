@@ -14,5 +14,7 @@ Item.all.each do |item|
   counter += 1
 end
 
+cart = Cart.create()
+
 
 user = User.create(email: "aisayo@yahoo.com", password: "12345678")
